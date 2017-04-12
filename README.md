@@ -10,7 +10,7 @@
 
 ## Author
 
-[Auth0](auth0.com)
+[sbwoo87@gmail.com](sbwoo87@gmail.com)
 
 ## License
 
