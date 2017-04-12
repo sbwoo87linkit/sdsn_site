@@ -11,18 +11,18 @@
         <li role="presentation" ng-class="{'active':$state.includes('*.about.greeting')}">
           <a ui-sref="ko.about.greeting">인사말</a>
         </li>
-        <li role="presentation" ng-class="{'active':$state.includes('*.about.sdsnkorea')}">
+        <li role="presentation" ng-class="{'active':$state.includes('*.about.sdsnkorea') || $state.includes('*.about.sdgs')}">
           <a ui-sref="ko.about.sdsnkorea">SDSN Korea 소개</a>
         </li>
         <!--<li role="presentation" ng-class="{'active':$state.includes('*.about.unsdsn')}">-->
           <!--<a ui-sref="ko.about.unsdsn">UN SDSN</a>-->
         <!--</li>-->
-        <li role="presentation" ng-class="{'active':$state.includes('*.about.organization')}">
-          <a ui-sref="ko.about.organization">조직</a>
-        </li>
-        <li role="presentation" ng-class="{'active':$state.includes('*.about.sdgs')}">
-          <a ui-sref="ko.about.sdgs">지속가능발전목표(SDGs)란</a>
-        </li>
+        <!--<li role="presentation" ng-class="{'active':$state.includes('*.about.organization')}">-->
+          <!--<a ui-sref="ko.about.organization">조직</a>-->
+        <!--</li>-->
+        <!--<li role="presentation" ng-class="{'active':$state.includes('*.about.sdgs')}">-->
+          <!--<a ui-sref="ko.about.sdgs">지속가능발전목표(SDGs)란</a>-->
+        <!--</li>-->
         <li role="presentation" ng-class="{'active':$state.includes('*.about.cicontact')}">
           <a ui-sref="ko.about.cicontact">연락처 및 찾아오시는 길</a>
         </li>

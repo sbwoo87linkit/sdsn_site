@@ -86,7 +86,38 @@ app.controller('ko.home.ctrl', function ($scope, boardService) {
         }
     );
 
+      boardService.load('issue', 1, 4, '').then(
+          function (results) {
+              console.log(results);
+              $scope.issues = results.data.docs;
 
+          },
+          function (err) {
+              console.log(err);
+          }
+      );
+
+      boardService.load('public', 1, 4, '').then(
+          function (results) {
+              console.log(results);
+              $scope.publics = results.data.docs;
+
+          },
+          function (err) {
+              console.log(err);
+          }
+      );
+
+      boardService.load('event-docs', 1, 4, '').then(
+          function (results) {
+              console.log(results);
+              $scope.eventdocs = results.data.docs;
+
+          },
+          function (err) {
+              console.log(err);
+          }
+      );
   }
 
   // initial load & reset

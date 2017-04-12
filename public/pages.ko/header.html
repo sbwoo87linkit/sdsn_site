@@ -11,14 +11,15 @@
     <div class="col-md-6 text-right">
 
       <span ng-if="! user">
-        <a href="" ui-sref="ko.login"> 로그인</a> |
+        <a href="" ui-sref="ko.login"> 로그인</a>
       </span>
       <span ng-if="user">
-        <a href="" ng-controller="ko.login.ctrl" ng-click="logout()"> 로그아웃</a> |
+        <a href="" ng-controller="ko.login.ctrl" ng-click="logout()"> 로그아웃</a>
       </span>
-      <a href="" ui-sref="ko.home" data-toggle="collapse" data-target=".navbar-collapse.in">Korean</a>
-       |
-      <a href="" ui-sref="en.home" data-toggle="collapse" data-target=".navbar-collapse.in">English</a>
+      <!--|-->
+      <!--<a href="" ui-sref="ko.home" data-toggle="collapse" data-target=".navbar-collapse.in">Korean</a>-->
+       <!--|-->
+      <!--<a href="" ui-sref="en.home" data-toggle="collapse" data-target=".navbar-collapse.in">English</a>-->
     </div>
   </div>
 

@@ -1,5 +1,4 @@
 <div class="container">
-  <h2 class="heading">공지사항</h2>
   <!--<div class="row bg-success">-->
     <!--<div class="bg-danger">BBB</div>-->
   <!--</div>-->
@@ -9,8 +8,15 @@
   <!--</div>-->
   <div class="row">
     <div class="col-md-8">
+        <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+            <div class="col-lg-8" style="font-size: 30px">공지사항</div>
+            <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'notice'})">+ 더보기</a></div>
+        </div>
 
-      <div style="height: 300px; background-color: #002a80">
+        <!--<h2 class="heading">공지사항</h2>-->
+
+
+        <div style="height: 300px; background-color: #002a80">
         <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
           <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
             <!--<div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">-->
@@ -33,30 +39,43 @@
 
     </div>
     <div class="col-md-4">
-      <div class="">
-        <h4 class="list-bar" ng-repeat="slide in slides">
-          <a ui-sref="ko.board.view({'articleType':'notice', 'articleId': slide.sid})">{{slide.title}}</a>
-        </h4>
-        <div class="text-right">
-          <h4><a ui-sref="ko.board.list({'articleType':'notice'})">공지사항목록 보기</a></h4>
+      <!--<h2 class="heading">NEWS</h2>-->
+        <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+            <div class="col-lg-8" style="font-size: 30px">NEWS</div>
+            <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'news'})">+ 더보기</a></div>
         </div>
+
+      <div class="">
+        <h4 class="list-bar" ng-repeat="item in news">
+          <a ui-sref="ko.board.view({'articleType':'news', 'articleId': item.sid})">{{item.title}}</a>
+        </h4>
+        <!--<div class="text-right">-->
+          <!--<h4><a ui-sref="ko.board.list({'articleType':'news'})">+ 더보기</a></h4>-->
+        <!--</div>-->
       </div>
     </div>
   </div>
 
-  <h2 class="heading">NEWS</h2>
+  <!--<h2 class="heading">연구발간물</h2>-->
+  <!--연구발간물 성명서 행사자료집 ui-sref="ko.board.list({'articleType':'issue'})"-->
+    <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+        <div class="col-lg-8" style="font-size: 30px">연구발간물</div>
+        <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'issue'})">+ 더보기</a></div>
+    </div>
 
   <div class="row">
-    <div class="col-lg-4" ng-repeat="item in news">
+    <div class="col-lg-3" ng-repeat="item in issues">
       <div class="card-container">
-        <div class="image-container">
-          <a ui-sref="ko.board.view({'articleType':'news', 'articleId': item.sid})">
-            <img ng-src="{{item.images[0].url}}" class="img-responsive img-percent" />
-          </a>
+        <div class="image-container text-center">
+          <!--<a ui-sref="ko.board.list({'articleType':'issue'})">-->
+              <!--&lt;!&ndash;<img ng-src="{{item.images[0].url}}" class="img-responsive img-percent" />&ndash;&gt;-->
+              <!--<img ng-src="{{item.images[0].url}}" style="height:180px;border:1px solid #ddd;" />-->
+          <!--</a>-->
+            <a ng-href="{{item.files[0].url}}" target="_blank" ><img ng-src="{{item.images[0].url}}" style="height:180px;border:1px solid #ddd;" /></a>
         </div>
       </div>
       <div>
-        <a ui-sref="ko.board.view({'articleType':'news', 'articleId': item.sid})">{{item.title}}</a>
+        <a ng-href="{{item.files[0].url}}" target="_blank" >{{item.title}}</a>
         <!--<h3 class="title-text" data-ng-bind="item.title" data-ellipsis data-ellipsis data-ellipsis-separator=""></h3>-->
       </div>
     </div>
@@ -64,10 +83,59 @@
       <strong></strong> 데이터가 없습니다.
     </div>
   </div>
-  <div class="text-right">
-    <h4><a ui-sref="ko.board.list({'articleType':'news'})">뉴스목록 보기</a></h4>
-  </div>
+  <!--<div class="text-right">-->
+    <!--<h4><a ui-sref="ko.board.list({'articleType':'news'})">뉴스목록 보기</a></h4>-->
+  <!--</div>-->
 
+
+
+    <!--<h2 class="heading">성명서</h2>-->
+    <!--연구발간물 성명서 행사자료집 ui-sref="ko.board.list({'articleType':'issue'})"-->
+    <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+        <div class="col-lg-8" style="font-size: 30px">성명서</div>
+        <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'public'})">+ 더보기</a></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-6" ng-repeat="item in publics">
+            <div class="card-container" style="margin-top: 10px;">
+                <div>
+                    <h4 style="padding-left: 10px;">{{item.title}}</h4>
+                    <ul style="height: 80px; overflow: auto">
+                        <li ng-repeat="file in item.files"><a ng-href="{{item.files[0].url}}" target="_blank" >{{file.url | filename}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-warning m-t-20" ng-if="!news.length">
+            <strong></strong> 데이터가 없습니다.
+        </div>
+    </div>
+
+
+    <!--<h2 class="heading">행사자료집</h2>-->
+    <!--연구발간물 성명서 행사자료집 ui-sref="ko.board.list({'articleType':'issue'})"-->
+    <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+        <div class="col-lg-8" style="font-size: 30px">행사자료집</div>
+        <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'event-docs'})">+ 더보기</a></div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6" ng-repeat="item in eventdocs">
+            <div class="card-container" style="margin-top: 10px;">
+                <div>
+                    <h4 style="padding-left: 10px;">{{item.title}}</h4>
+                    <ul style="height: 80px; overflow: auto">
+                        <li ng-repeat="file in item.files"><a ng-href="{{item.files[0].url}}" target="_blank" >{{file.url | filename}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-warning m-t-20" ng-if="!news.length">
+            <strong></strong> 데이터가 없습니다.
+        </div>
+    </div>
 
 </div>
 

@@ -59,7 +59,7 @@ app.factory('menuService', function () {
             return {menu: 'resources', boardTitle: '성명서', boardType:"public" };
         }
         if (state.articleType === 'event-docs') {
-            return {menu: 'resources', boardTitle: '행사자료집', boardType:"gallary" };
+            return {menu: 'resources', boardTitle: '행사자료집', boardType:"public" };
         }
 
 

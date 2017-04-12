@@ -175,10 +175,10 @@ app.controller('ko.board.create.ctrl', function ($scope, $window, $rootScope, $s
             toastr.error("제목을 추가해 주세요");
             return;
         }
-        if (!$scope.data.content) {
-            toastr.error("내용을 추가해 주세요");
-            return;
-        }
+        // if (!$scope.data.content) {
+        //     toastr.error("내용을 추가해 주세요");
+        //     return;
+        // }
 
         if ($stateParams.articleType === 'notice' || $stateParams.articleType === 'news') {
             if ($scope.data.images.length === 0) {
@@ -284,10 +284,10 @@ app.controller('ko.board.edit.ctrl', function ($scope, $rootScope, $window, $htt
             toastr.error("제목을 추가해 주세요");
             return;
         }
-        if (!$scope.data.content) {
-            toastr.error("내용을 추가해 주세요");
-            return;
-        }
+        // if (!$scope.data.content) {
+        //     toastr.error("내용을 추가해 주세요");
+        //     return;
+        // }
 
         if ($stateParams.articleType === 'notice' || $stateParams.articleType === 'news') {
             if ($scope.data.images.length === 0) {
