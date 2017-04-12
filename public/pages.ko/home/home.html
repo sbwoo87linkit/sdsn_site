@@ -1,0 +1,125 @@
+<div class="container">
+  <h2 class="heading">공지사항</h2>
+  <!--<div class="row bg-success">-->
+    <!--<div class="bg-danger">BBB</div>-->
+  <!--</div>-->
+  <!--<div class="row bg-success">-->
+    <!--<div class="col-md-8 bg-danger">이미지</div>-->
+    <!--<div class="col-md-4 bg-success text-right">텍스트</div>-->
+  <!--</div>-->
+  <div class="row">
+    <div class="col-md-8">
+
+      <div style="height: 300px; background-color: #002a80">
+        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+          <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+            <!--<div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">-->
+            <a ui-sref="ko.board.view({'articleType':'notice', 'articleId': slide.sid})">
+              <img ng-src="{{slide.images[0].url}}"
+                   ui-sref="ko.board.view({'articleType':'notice', 'articleId': slide.sid})"
+                   style="margin:auto; height: 300px;" >
+            </a>
+            <div class="carousel-caption">
+              <h3>{{slide.title}}</h3>
+              <!--<h4><a ui-sref="ko.board.view({'articleType':'notice', 'articleId': slide.sid})" style="color: #fff;">{{slide.title}}</a></h4>-->
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-warning m-t-20" ng-if="!slides.length">
+          <strong></strong> 데이터가 없습니다.
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-md-4">
+      <div class="">
+        <h4 class="list-bar" ng-repeat="slide in slides">
+          <a ui-sref="ko.board.view({'articleType':'notice', 'articleId': slide.sid})">{{slide.title}}</a>
+        </h4>
+        <div class="text-right">
+          <h4><a ui-sref="ko.board.list({'articleType':'notice'})">공지사항목록 보기</a></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading">NEWS</h2>
+
+  <div class="row">
+    <div class="col-lg-4" ng-repeat="item in news">
+      <div class="card-container">
+        <div class="image-container">
+          <a ui-sref="ko.board.view({'articleType':'news', 'articleId': item.sid})">
+            <img ng-src="{{item.images[0].url}}" class="img-responsive img-percent" />
+          </a>
+        </div>
+      </div>
+      <div>
+        <a ui-sref="ko.board.view({'articleType':'news', 'articleId': item.sid})">{{item.title}}</a>
+        <!--<h3 class="title-text" data-ng-bind="item.title" data-ellipsis data-ellipsis data-ellipsis-separator=""></h3>-->
+      </div>
+    </div>
+    <div class="alert alert-warning m-t-20" ng-if="!news.length">
+      <strong></strong> 데이터가 없습니다.
+    </div>
+  </div>
+  <div class="text-right">
+    <h4><a ui-sref="ko.board.list({'articleType':'news'})">뉴스목록 보기</a></h4>
+  </div>
+
+
+</div>
+
+
+
+<!--<div class="container content">-->
+  <!--<h2 class="heading">SDSN News & Events</h2>-->
+
+
+  <!--<section id="content">-->
+    <!--<div class="container">-->
+      <!--<div class="row">-->
+        <!--<div class="col-lg-4" ng-repeat="item in items">-->
+          <!--<div class="card-container">-->
+            <!--<div class="image-container">-->
+              <!--<img ng-src="images/{{item.image}}" class="img-responsive img-percent" />-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div>-->
+            <!--<h3 class="title-text" data-ng-bind="item.title" data-ellipsis></h3>-->
+            <!--<p class="content-text" data-ng-bind="item.content" data-ellipsis></p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</section>-->
+
+
+  <!--<h2 class="heading">Resources</h2>-->
+  <!--<section id="content">-->
+    <!--<div class="container">-->
+      <!--<div class="row">-->
+        <!--<div class="col-lg-3" ng-repeat="item in items">-->
+          <!--<div class="card-container">-->
+            <!--<div class="image-container">-->
+              <!--<img ng-src="images/{{item.image}}" class="img-responsive img-percent" />-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div>-->
+            <!--<h3 class="title-text" data-ng-bind="item.title" data-ellipsis></h3>-->
+            <!--<p class="content-text" data-ng-bind="item.content" data-ellipsis></p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</section>-->
+
+<!--</div>-->
+<script type='text/javascript'>
+//  $(document).ready(function() {
+//    $('.carousel').carousel({
+//      interval: 3000
+//    })
+//  });
+</script>

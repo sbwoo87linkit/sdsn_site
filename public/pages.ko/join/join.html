@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+
+      <div class="side-title">
+        <h5>JOIN US</h5>
+      </div>
+
+      <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" ng-class="{'active':$state.includes('*.join.map')}">
+          <a ui-sref="ko.join.map">JOIN US</a>
+        </li>
+      </ul>
+
+      <div ng-include="'pages.ko/banner.html'">
+      </div>
+
+    </div>
+   <div class="col-md-9">
+      <div ui-view class="content"></div>
+    </div>
+  </div>
+
+</div>

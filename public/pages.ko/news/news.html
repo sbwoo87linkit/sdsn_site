@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+
+      <div class="side-title">
+        <h5>NEWS&EVENTS</h5>
+      </div>
+
+      <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" ui-sref-active="active">
+          <a ui-sref="ko.news.list({'articleType':'notice'})">공지사항</a>
+        </li>
+        <li role="presentation" ui-sref-active="active">
+          <a ui-sref="ko.news.list({'articleType':'news'})">NEWS</a>
+        </li>
+        <li role="presentation" ui-sref-active="active">
+          <a ui-sref="ko.news.list({'articleType':'un-sdsn'})">UN SDSN 소식</a>
+        </li>
+        <li role="presentation" ui-sref-active="active">
+          <a ui-sref="ko.news.list({'articleType':'korea-sdsn'})">SDSN Korea 소개</a>
+        </li>
+      </ul>
+
+      <div ng-include="'pages.ko/banner.html'">
+      </div>
+
+    </div>
+    <div class="col-md-9">
+      <div ui-view class="content"></div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,70 @@
+<!--<div class="container"  ng-include="'templates/logo_bar_top.html'">
+</div>-->
+
+<div class="container header">
+  <div class="row">
+    <div class="col-md-6">
+      <a href="" ui-sref="ko.home" data-toggle="collapse" data-target=".navbar-collapse.in">
+        <img class="logo" src="images/sdsn_korea_logo.png" alt="한국 SDSN 로고 이미지">
+      </a>
+    </div>
+    <div class="col-md-6 text-right">
+
+      <span ng-if="! user">
+        <a href="" ui-sref="ko.login"> 로그인</a> |
+      </span>
+      <span ng-if="user">
+        <a href="" ng-controller="ko.login.ctrl" ng-click="logout()"> 로그아웃</a> |
+      </span>
+      <a href="" ui-sref="ko.home" data-toggle="collapse" data-target=".navbar-collapse.in">Korean</a>
+       |
+      <a href="" ui-sref="en.home" data-toggle="collapse" data-target=".navbar-collapse.in">English</a>
+    </div>
+  </div>
+
+</div>
+
+<nav class="navbar navbar-blue navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+              aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-left" href="#"><img class="img-responsive logo" src="images/sdsn_logo_fc.png" alt="한국 SDSN 로고 이미지"></a>-->
+
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="" ui-sref="ko.home" data-toggle="collapse" data-target=".navbar-collapse.in">HOME</a></li>
+        <li>
+          <a href="" ui-sref="ko.about.greeting" data-toggle="collapse" data-target=".navbar-collapse.in">ABOUT</a>
+        </li>
+        <li>
+          <a href="" ui-sref="ko.cowork.member" data-toggle="collapse" data-target=".navbar-collapse.in">NETWORK</a>
+        </li>
+        <li>
+          <a href="" ui-sref="ko.initiatives.ddpp_leds" data-toggle="collapse" data-target=".navbar-collapse.in">INITIATIVES</a>
+        </li>
+        <li>
+          <a href="" ui-sref="ko.board.list({'articleType':'notice'})" data-toggle="collapse" data-target=".navbar-collapse.in">NEWS&EVENTS</a>
+        </li>
+        <li>
+          <a href="" ui-sref="ko.board.list({'articleType':'issue'})" data-toggle="collapse" data-target=".navbar-collapse.in">RESOURCES</a>
+        </li>
+        <li>
+          <a href="" ui-sref="ko.join.map" data-toggle="collapse" data-target=".navbar-collapse.in">JOIN US</a>
+        </li>
+      </ul>
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav>
+<script type="text/javascript">
+  // $("#headerCarousel").carousel();
+
+</script>

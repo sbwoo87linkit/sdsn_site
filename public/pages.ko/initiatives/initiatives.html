@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+
+      <div class="side-title">
+        <h5>INITIATIVES</h5>
+      </div>
+
+      <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" ng-class="{'active':$state.includes('*.initiatives.ddpp_leds')}">
+          <a ui-sref="ko.initiatives.ddpp_leds">Deep Decarbonization Pathways Project</a>
+        </li>
+        <li role="presentation" ng-class="{'active':$state.includes('*.initiatives.sustainable_development')}">
+          <a ui-sref="ko.initiatives.sustainable_development">Sustainable Development</a>
+        </li>
+        <li role="presentation" ng-class="{'active':$state.includes('*.initiatives.thematic_network')}">
+          <a ui-sref="ko.initiatives.thematic_network">Thematic Network</a>
+        </li>
+        <li role="presentation" ng-class="{'active':$state.includes('*.initiatives.sdsn_youth')}">
+          <a ui-sref="ko.initiatives.sdsn_youth">SDSN Youth</a>
+        </li>
+        <li role="presentation" ng-class="{'active':$state.includes('*.initiatives.sdg_academy')}">
+          <a ui-sref="ko.initiatives.sdg_academy">SDG Academy</a>
+        </li>
+      </ul>
+
+      <div ng-include="'pages.ko/banner.html'">
+      </div>
+
+    </div>
+    <div class="col-md-9">
+      <div ui-view class="content"></div>
+    </div>
+  </div>
+
+</div>

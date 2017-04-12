@@ -1,0 +1,4 @@
+{
+    "secret": "ngEurope rocks!",
+    "connectionString": "mongodb://54.71.248.188:27017/votee"
+}

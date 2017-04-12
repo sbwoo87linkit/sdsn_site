@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+
+      <div class="side-title">
+        <h5>RESOURCES</h5>
+      </div>
+
+      <!--<ul class="nav nav-pills nav-stacked">-->
+        <!--<li role="presentation" ng-class="{'active':$state.includes('*.resources.issues')}">-->
+          <!--<a ui-sref="ko.resources.issues">연구 발간물</a>-->
+        <!--</li>-->
+        <!--<li role="presentation" ng-class="{'active':$state.includes('*.resources.publics')}">-->
+          <!--<a ui-sref="ko.resources.publics">성명서</a>-->
+        <!--</li>-->
+        <!--<li role="presentation" ng-class="{'active':$state.includes('*.resources.event_docs')}">-->
+          <!--<a ui-sref="ko.resources.event_docs">행사자료집</a>-->
+        <!--</li>-->
+      <!--</ul>-->
+
+      <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" ui-sref-active="active">
+          <a ui-sref="ko.resources.list({'articleType':'issue'})">연구 발간물</a>
+        </li>
+        <li role="presentation" ui-sref-active="active">
+          <a ui-sref="ko.resources.list({'articleType':'public'})">성명서</a>
+        </li>
+        <li role="presentation" ui-sref-active="active">
+          <a ui-sref="ko.resources.list({'articleType':'event-docs'})">행사자료집</a>
+        </li>
+      </ul>
+
+      <div ng-include="'pages.ko/banner.html'">
+      </div>
+
+    </div>
+    <div class="col-md-9">
+      <div ui-view class="content"></div>
+    </div>
+  </div>
+
+</div>
