@@ -12,6 +12,8 @@
 
       <span ng-if="! user">
         <a href="" ui-sref="ko.login"> 로그인</a>
+        <span style="color: #ccc"> | </span>
+        <a href="" ui-sref="ko.signup"> 회원가입</a>
       </span>
       <span ng-if="user">
         <a href="" ng-controller="ko.login.ctrl" ng-click="logout()"> 로그아웃</a>
@@ -58,7 +60,7 @@
           <a href="" ui-sref="ko.board.list({'articleType':'issue'})" data-toggle="collapse" data-target=".navbar-collapse.in">RESOURCES</a>
         </li>
         <li>
-          <a href="" ui-sref="ko.join.map" data-toggle="collapse" data-target=".navbar-collapse.in">JOIN US</a>
+          <a href="" ui-sref="ko.join.info" data-toggle="collapse" data-target=".navbar-collapse.in">JOIN US</a>
         </li>
       </ul>
     </div>

@@ -96,11 +96,17 @@ app.config(function ($stateProvider, $urlRouterProvider, $authProvider) {
 
 		.state('ko.login', {
 			url: "/login",
-			templateUrl: "pages.ko/login/login.html",
+			templateUrl: "pages.ko/auth/login.html",
 			controller: 'ko.login.ctrl'
 		})
 
-		// .state('ko.login', {
+        .state('ko.signup', {
+            url: "/signup",
+            templateUrl: "pages.ko/auth/signup.html",
+            controller: 'ko.signup.ctrl'
+        })
+
+        // .state('ko.login', {
 		//     url: "/login",
 		//     templateUrl: "pages.ko/login/login.html",
 		//     controller: 'ko.login.ctrl'
@@ -115,6 +121,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $authProvider) {
 			url: "/greeting",
 			templateUrl: "pages.ko/about/about.greeting.html"
 		})
+        .state('ko.about.ceo_history', {
+            url: "/ceo_history",
+            templateUrl: "pages.ko/about/about.ceo_history.html"
+        })
+
 		.state('ko.about.sdsnkorea', {
 			url: "/sdsnkorea",
 			templateUrl: "pages.ko/about/about.sdsnkorea.html",
@@ -341,9 +352,9 @@ app.config(function ($stateProvider, $urlRouterProvider, $authProvider) {
 			url: "/join",
 			templateUrl: "pages.ko/join/join.html"
 		})
-		.state('ko.join.map', {
-			url: "/map",
-			templateUrl: "pages.ko/join/join.map.html",
+		.state('ko.join.info', {
+			url: "/info",
+			templateUrl: "pages.ko/join/join.info.html",
 			controller: function ($scope) {
 
 				// console.log('join us')
@@ -514,6 +525,11 @@ app.run(function ($rootScope, $state, $stateParams, $http, $window, $auth) {
 
 
 		});
+
+    $rootScope.$on('$stateChangeSuccess', function() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    });
+
 
 
 
