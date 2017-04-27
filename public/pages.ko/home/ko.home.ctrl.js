@@ -163,4 +163,8 @@ app.controller('ko.home.ctrl', function ($scope, boardService) {
         // interval: false,
     });
 
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
 })

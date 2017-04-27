@@ -4,8 +4,10 @@
 }
 
 body {
+  font-family: 'Malgun gothic','\00b9d1\00c740  \00ace0\00b515',Helvetica Neue,Helvetica,Arial,'Apple SD Gothic Neo',sans-serif;
+  /*font-family: '맑은고딕', sans-serif;*/
   /*font-family: Arial, "Droid Sans", sans-serif;*/
-  font-family: 'Open Sans', Arial, sans-serif;
+  /*font-family: 'Open Sans', Arial, sans-serif;*/
   font-size: 16px;
   color: #5c5c5c;
 }
@@ -219,7 +221,7 @@ article.post {
 pre {
   white-space: pre-wrap;       /* css-3 */
   white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;      /* Opera 4-6 */
+  /*white-space: -pre-wrap;      !* Opera 4-6 *!*/
   white-space: -o-pre-wrap;    /* Opera 7 */
   word-wrap: break-word;       /* Internet Explorer 5.5+ */
   border-width: 0;
@@ -273,7 +275,7 @@ p, li, td {
   text-align:justify;
   font-size: 14px;
   /*letter-spacing: 1.2px;*/
-  font-family: "Nanum Gothic";
+  /*font-family: "Nanum Gothic";*/
   line-height: 25px;
 }
 
@@ -370,18 +372,24 @@ p, li, td {
   padding:5px
 }
 
+.link-wrapper {
+  border:1px solid #ddd;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
 .site-link{
   display: inline-block;
   border:1px solid #ccc;
-  padding: 5px;
-  margin: 10px;
+  /*padding: 5px;*/
+  margin: 0px 10px 10px 10px;
 }
 
 .site-link:hover{
-  border:1px solid #9d9d9d;
+  border:1px solid #003f72;
 }
 
 .site-link img{
-  height: 50px;
-  margin: 5px;
+  height: 40px;
+  margin: 3px;
 }
