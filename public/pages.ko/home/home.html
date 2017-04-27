@@ -1,64 +1,465 @@
-<!--
+<!--유관기관 링크 Static-->
+<div class="container">
+    <div class='row'>
+        <div class='col-md-12'>
+            <!--<div class="site-link">-->
+                <!--<a href="http://www.unsdsn.org/" target="_blank">-->
+                    <!--<img class="logo"-->
+                         <!--src="images/logos/sdsn_logo_fc.png"-->
+                         <!--alt=""></a>-->
+            <!--</div>-->
+            <a class="site-link" href="http://www.unsdsn.org/" target="_blank">
+                <img class="logo"
+                     src="images/logos/sdsn_logo_fc.png"
+                     alt=""></a>
+            <a class="site-link" href="http://www.unsdsn.org/" target="_blank">
+                <img class="logo"
+                     src="images/logos/sdsn_logo_fc.png"
+                     alt=""></a>
+            <a class="site-link" href="http://www.unsdsn.org/" target="_blank">
+                <img class="logo"
+                     src="images/logos/sdsn_logo_fc.png"
+                     alt=""></a>
+        </div>
+    </div>
+</div>
 
-
-<a class="thumbnail" href="https://sustainabledevelopment.un.org/" target="_blank"> UN Sustainable Development Knowledge Platform </a>
-<a class="thumbnail" href=" http://www.sd-network.eu/" target="_blank"> ESDN</a>
-<a class="thumbnail" href="https://www.un.org/development/desa/en/" target="_blank"> UN DESA </a>
-<a class="thumbnail" href=" http://www.unescap.org/" target="_blank"> UNESCAP </a>
-<a class="thumbnail" href=" http://www.oecd.org/greengrowth/ggsd-forum.htm" target="_blank"> GGSD Forum </a>
-<a class="thumbnail" href=" http://web.unep.org/" target="_blank"> UNEP </a>
-<a class="thumbnail" href=" http://www.greengrowthknowledge.org/" target="_blank"> UNESCAP </a>
-<a class="thumbnail" href=" http://gggi.org/" target="_blank"> GGGI </a>
-<a class="thumbnail" href=" http://www.unssc.org/" target="_blank"> UNSSC </a>
-<a class="thumbnail" href=" http://www.iddri.org/" target="_blank"> IDDRI </a>
-<a class="thumbnail" href=" http://deepdecarbonization.org/" target="_blank"> DDPP </a>
-<a class="thumbnail" href=" http://www.iddri.org/" target="_blank"> IDDRI </a>
-<a class="thumbnail" href=" http://www.die-gdi.de/en/" target="_blank"> DIE </a>
-<a class="thumbnail" href="http://kei.re.kr/aKor/main.kei " target="_blank"> KEI </a>
-
--->
 
 <div class="container">
+    <!--SDSN Korea 소식, Notice-->
     <div class="row">
-        <h2>Media Slider Carousel BS3</h2>
+        <div class="col-md-8">
+            <!--SDSN Korea 소식-->
+            <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+                <div class="col-lg-8" style="font-size: 30px">SDSN Korea 소식</div>
+                <div class="col-lg-4 text-right" style="margin-top: 20px;"><a
+                        ui-sref="ko.board.list({'articleType':'korea-sdsn'})">+ 더보기</a></div>
+            </div>
+            <div style="height: 300px;">
+                <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                    <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="height:300px; overflow: hidden">
+                        <!--<div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">-->
+                        <a ui-sref="ko.board.view({'articleType':'korea-sdsn', 'articleId': slide.sid})">
+                            <img ng-src="{{slide.images[0].url}}"
+                                 ui-sref="ko.board.view({'articleType':'korea-sdsn', 'articleId': slide.sid})"
+                                 style="margin:auto; width:100%; height: auto;">
+                        </a>
+                        <!--<div class="carousel-caption" style="background: rgba(0,0,0,0.0)">-->
+                            <!--<h3>{{slide.title}}</h3>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <div class="alert alert-warning m-t-20" ng-if="!slides.length">
+                    <strong></strong> 데이터가 없습니다.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <!--공지사항-->
+            <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+                <div class="col-lg-8" style="font-size: 30px">공지사항</div>
+                <div class="col-lg-4 text-right" style="margin-top: 20px;"><a
+                        ui-sref="ko.board.list({'articleType':'notice'})">+ 더보기</a></div>
+            </div>
+
+            <div class="">
+                <h4 class="list-bar" ng-repeat="item in notices">
+                    <a ui-sref="ko.board.view({'articleType':'notice', 'articleId': item.sid})">{{item.title}}</a>
+                </h4>
+            </div>
+            <div class="alert alert-warning m-t-20" ng-if="!notices.length">
+                <strong></strong> 데이터가 없습니다.
+            </div>
+        </div>
     </div>
+
+    <!--연구발간물-->
+    <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+        <div class="col-lg-8" style="font-size: 30px">연구발간물</div>
+        <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'issue'})">+
+            더보기</a></div>
+    </div>
+    <!--<div class="row">-->
+        <!--<div class="col-lg-3" ng-repeat="item in issues">-->
+            <!--<div class="card-container">-->
+                <!--<div class="image-container text-center">-->
+                    <!--<a ng-href="{{item.files[0].url}}" target="_blank"><img ng-src="{{item.images[0].url}}"-->
+                                                                            <!--style="height:180px;border:1px solid #ddd;"/></a>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<a ng-href="{{item.files[0].url}}" target="_blank">{{item.title}}</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="alert alert-warning m-t-20" ng-if="!issues.length">-->
+            <!--<strong></strong> 데이터가 없습니다.-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="row">
+        <div class="col-lg-3" ng-repeat="item in issues">
+            <div class="" style="background: #fff; padding: 5px; border:1px solid #fff">
+                <div class="text-center">
+                    <a ng-href="{{item.files[0].url}}" target="_blank"><img ng-src="{{item.images[0].url}}"
+                                                                            style="height:180px;border:1px solid #ddd;"/></a>
+                </div>
+            </div>
+            <div class="text-center">
+                <a ng-href="{{item.files[0].url}}" target="_blank" style="font-size: 0.9em">{{item.title}}</a>
+            </div>
+        </div>
+        <div class="alert alert-warning m-t-20" ng-if="!issues.length">
+            <strong></strong> 데이터가 없습니다.
+        </div>
+    </div>
+
+
+
+    <!--행사자료집-->
+    <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+        <div class="col-lg-8" style="font-size: 30px">행사자료집</div>
+        <div class="col-lg-4 text-right" style="margin-top: 20px;"><a
+                ui-sref="ko.board.list({'articleType':'event-docs'})">+ 더보기</a></div>
+    </div>
+    <!--<div class="row">-->
+        <!--<div class="col-lg-6" ng-repeat="item in eventdocs">-->
+            <!--<div class="card-container" style="margin-top: 10px;">-->
+                <!--<div>-->
+                    <!--<h4 style="padding-left: 10px;">{{item.title}}</h4>-->
+                    <!--<ul style="height: 80px; overflow: auto">-->
+                        <!--<li ng-repeat="file in item.files"><a ng-href="{{item.files[0].url}}" target="_blank">{{file.url-->
+                            <!--| filename}}</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="alert alert-warning m-t-20" ng-if="!eventdocs.length">-->
+            <!--<strong></strong> 데이터가 없습니다.-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="row">
+        <div class="col-lg-3" ng-repeat="item in eventdocs">
+            <div class="" style="background: #fff; padding: 5px; border:1px solid #fff">
+                <div class="text-center">
+                    <a ng-href="{{item.files[0].url}}" target="_blank"><img ng-src="{{item.images[0].url}}"
+                                                                            style="height:180px;border:1px solid #ddd;"/></a>
+                </div>
+            </div>
+            <div class="text-center">
+                <a ng-href="{{item.files[0].url}}" target="_blank" style="font-size: 0.9em">{{item.title}}</a>
+            </div>
+        </div>
+        <div class="alert alert-warning m-t-20" ng-if="!issues.length">
+            <strong></strong> 데이터가 없습니다.
+        </div>
+    </div>
+
+    <!--성명서-->
+    <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+        <div class="col-lg-8" style="font-size: 30px">성명서</div>
+        <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'public'})">+
+            더보기</a></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6" ng-repeat="item in publics">
+            <div class="card-container" style="margin-top: 10px;">
+                <div>
+                    <h4 style="padding-left: 10px;">{{item.title}}</h4>
+                    <ul style="height: 80px; overflow: auto">
+                        <li ng-repeat="file in item.files"><a ng-href="{{item.files[0].url}}" target="_blank">{{file.url
+                            | filename}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-warning m-t-20" ng-if="!publics.length">
+            <strong></strong> 데이터가 없습니다.
+        </div>
+    </div>
+</div>
+
+
+<!--유관기관 링크 Carousel-->
+<div class="container">
     <div class='row'>
         <div class='col-md-12'>
             <div class="carousel slide media-carousel" id="media">
                 <div class="carousel-inner">
-                    <div class="item  active">
+                    <div class="item active">
                         <div class="row">
                             <div class="col-md-4">
-                                <div>
-                                    <img class="logo" src="images/logos/sdsn_logo_fc.png" alt="">
-                                    <a href="http://www.unsdsn.org/" target="_blank">UN SDSN</a>
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://www.unsdsn.org/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/sdsn_logo_fc.png"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://www.unsdsn.org/" target="_blank">UN SDSN</a>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="https://sustainabledevelopment.un.org/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/sdsn_logo_fc.png"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="https://sustainabledevelopment.un.org/" target="_blank">UN Sustainable Development Knowledge Platform</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                             <div class="col-md-4">
-                                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://www.sd-network.eu/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/ESDN.gif"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://www.sd-network.eu/" target="_blank">ESDN</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="row">
                             <div class="col-md-4">
-                                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="https://www.un.org/development/desa/en/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/UNDESA.png"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="https://www.un.org/development/desa/en/" target="_blank">UN DESA</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                             <div class="col-md-4">
-                                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://www.unescap.org/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/ESCAP.png"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://www.unescap.org/" target="_blank">UNESCAP</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                             <div class="col-md-4">
-                                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://www.oecd.org/greengrowth/ggsd-forum.htm" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/GGSD_OECD.png"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://www.oecd.org/greengrowth/ggsd-forum.htm" target="_blank">GGSD Forum</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://web.unep.org/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/UNEP.png"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://web.unep.org/" target="_blank">UNEP</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://www.greengrowthknowledge.org/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/green growth knowledge platform.png"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://www.greengrowthknowledge.org/" target="_blank">green growth knowledge platform</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://gggi.org/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/GGGI.png"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://gggi.org/" target="_blank">GGGI</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://www.unssc.org/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/unssc-logo.png"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://www.unssc.org/" target="_blank">UNSSC</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://www.iddri.org/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/IDDRI.jpg"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://www.iddri.org/" target="_blank">IDDRI</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://deepdecarbonization.org/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/DDPP.png"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://deepdecarbonization.org/" target="_blank">DDPP</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="row">
                             <div class="col-md-4">
-                                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://www.iddri.org/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/IDDRI.jpg"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://www.iddri.org/" target="_blank">IDDRI</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://www.die-gdi.de/en/" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/DIE.jpg"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://www.die-gdi.de/en/" target="_blank">DIE</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item-wrapper">
+                                    <table class="item-table">
+                                        <tr>
+                                            <td class="image-cell">
+                                                <a href="http://kei.re.kr/aKor/main.kei" target="_blank">
+                                                    <img class="logo"
+                                                         src="images/logos/KEI.jpg"
+                                                         alt=""></a>
+                                            </td>
+                                            <td>
+                                                <a class="link" href="http://kei.re.kr/aKor/main.kei" target="_blank">KEI</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -69,269 +470,3 @@
         </div>
     </div>
 </div>
-
-
-<div class="container">
-    <h1>Use Bootstrap's carousel to show multiple items per slide.</h1>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="carousel slide multi-item-carousel" id="theCarousel">
-                <div class="carousel-inner">
-
-                    <div class="item active">
-                        <div class="col-xs-4">
-                            <div style="height: 80px; background: red">
-                                <a href="#1">AAA</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="col-xs-4">
-                            <div style="height: 80px; background: green">
-                                <a href="#1">BBB</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="col-xs-4">
-                            <div style="height: 80px; background: blue">
-                                <a href="#1">CCC</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-xs-4">
-                            <div style="height: 80px; background: goldenrod">
-                                <a href="#1">DDD</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!--<div class="item active">-->
-                    <!--<div class="col-xs-4"><a href="#1"><img src="http://placehold.it/300/e91e63/000000" class="img-responsive"></a></div>-->
-                    <!--</div>-->
-                    <!--<div class="item">-->
-                    <!--<div class="col-xs-4"><a href="#1"><img src="http://placehold.it/300/9c27b0/000000" class="img-responsive"></a></div>-->
-                    <!--</div>-->
-                    <!--<div class="item">-->
-                    <!--<div class="col-xs-4"><a href="#1"><img src="http://placehold.it/300/673ab7/000000" class="img-responsive"></a></div>-->
-                    <!--</div>-->
-                    <!--<div class="item">-->
-                    <!--<div class="col-xs-4"><a href="#1"><img src="http://placehold.it/300/4caf50/000000" class="img-responsive"></a></div>-->
-                    <!--</div>-->
-                    <!--<div class="item">-->
-                    <!--<div class="col-xs-4"><a href="#1"><img src="http://placehold.it/300/8bc34a/000000" class="img-responsive"></a></div>-->
-                    <!--</div>-->
-
-                    <!--<div class="item">-->
-                    <!--<div class="col-xs-4"><a href="#1"><img src="http://placehold.it/300/8bc34a/000000" class="img-responsive"></a></div>-->
-                    <!--</div>-->
-
-                    <!--  Example item end -->
-                </div>
-                <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-                <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-  <!--<div class="row bg-success">-->
-    <!--<div class="bg-danger">BBB</div>-->
-  <!--</div>-->
-  <!--<div class="row bg-success">-->
-    <!--<div class="col-md-8 bg-danger">이미지</div>-->
-    <!--<div class="col-md-4 bg-success text-right">텍스트</div>-->
-  <!--</div>-->
-  <div class="row">
-    <div class="col-md-8">
-        <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
-            <div class="col-lg-8" style="font-size: 30px">SDSN Korea 소식</div>
-            <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'notice'})">+ 더보기</a></div>
-        </div>
-
-        <!--<h2 class="heading">공지사항</h2>-->
-
-
-        <div style="height: 300px; background-color: #002a80">
-        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-          <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-            <!--<div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">-->
-            <a ui-sref="ko.board.view({'articleType':'notice', 'articleId': slide.sid})">
-              <img ng-src="{{slide.images[0].url}}"
-                   ui-sref="ko.board.view({'articleType':'notice', 'articleId': slide.sid})"
-                   style="margin:auto; height: 300px;" >
-            </a>
-            <div class="carousel-caption">
-              <h3>{{slide.title}}</h3>
-              <!--<h4><a ui-sref="ko.board.view({'articleType':'notice', 'articleId': slide.sid})" style="color: #fff;">{{slide.title}}</a></h4>-->
-            </div>
-          </div>
-        </div>
-        <div class="alert alert-warning m-t-20" ng-if="!slides.length">
-          <strong></strong> 데이터가 없습니다.
-        </div>
-
-      </div>
-
-    </div>
-    <div class="col-md-4">
-      <!--<h2 class="heading">NEWS</h2>-->
-        <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
-            <div class="col-lg-8" style="font-size: 30px">공지사항</div>
-            <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'news'})">+ 더보기</a></div>
-        </div>
-
-      <div class="">
-        <h4 class="list-bar" ng-repeat="item in news">
-          <a ui-sref="ko.board.view({'articleType':'news', 'articleId': item.sid})">{{item.title}}</a>
-        </h4>
-        <!--<div class="text-right">-->
-          <!--<h4><a ui-sref="ko.board.list({'articleType':'news'})">+ 더보기</a></h4>-->
-        <!--</div>-->
-      </div>
-    </div>
-  </div>
-
-  <!--<h2 class="heading">연구발간물</h2>-->
-  <!--연구발간물 성명서 행사자료집 ui-sref="ko.board.list({'articleType':'issue'})"-->
-    <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
-        <div class="col-lg-8" style="font-size: 30px">연구발간물</div>
-        <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'issue'})">+ 더보기</a></div>
-    </div>
-
-  <div class="row">
-    <div class="col-lg-3" ng-repeat="item in issues">
-      <div class="card-container">
-        <div class="image-container text-center">
-          <!--<a ui-sref="ko.board.list({'articleType':'issue'})">-->
-              <!--&lt;!&ndash;<img ng-src="{{item.images[0].url}}" class="img-responsive img-percent" />&ndash;&gt;-->
-              <!--<img ng-src="{{item.images[0].url}}" style="height:180px;border:1px solid #ddd;" />-->
-          <!--</a>-->
-            <a ng-href="{{item.files[0].url}}" target="_blank" ><img ng-src="{{item.images[0].url}}" style="height:180px;border:1px solid #ddd;" /></a>
-        </div>
-      </div>
-      <div>
-        <a ng-href="{{item.files[0].url}}" target="_blank" >{{item.title}}</a>
-        <!--<h3 class="title-text" data-ng-bind="item.title" data-ellipsis data-ellipsis data-ellipsis-separator=""></h3>-->
-      </div>
-    </div>
-    <div class="alert alert-warning m-t-20" ng-if="!news.length">
-      <strong></strong> 데이터가 없습니다.
-    </div>
-  </div>
-  <!--<div class="text-right">-->
-    <!--<h4><a ui-sref="ko.board.list({'articleType':'news'})">뉴스목록 보기</a></h4>-->
-  <!--</div>-->
-
-
-
-    <!--<h2 class="heading">성명서</h2>-->
-    <!--연구발간물 성명서 행사자료집 ui-sref="ko.board.list({'articleType':'issue'})"-->
-    <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
-        <div class="col-lg-8" style="font-size: 30px">성명서</div>
-        <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'public'})">+ 더보기</a></div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-lg-6" ng-repeat="item in publics">
-            <div class="card-container" style="margin-top: 10px;">
-                <div>
-                    <h4 style="padding-left: 10px;">{{item.title}}</h4>
-                    <ul style="height: 80px; overflow: auto">
-                        <li ng-repeat="file in item.files"><a ng-href="{{item.files[0].url}}" target="_blank" >{{file.url | filename}}</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="alert alert-warning m-t-20" ng-if="!news.length">
-            <strong></strong> 데이터가 없습니다.
-        </div>
-    </div>
-
-
-    <!--<h2 class="heading">행사자료집</h2>-->
-    <!--연구발간물 성명서 행사자료집 ui-sref="ko.board.list({'articleType':'issue'})"-->
-    <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
-        <div class="col-lg-8" style="font-size: 30px">행사자료집</div>
-        <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'event-docs'})">+ 더보기</a></div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-6" ng-repeat="item in eventdocs">
-            <div class="card-container" style="margin-top: 10px;">
-                <div>
-                    <h4 style="padding-left: 10px;">{{item.title}}</h4>
-                    <ul style="height: 80px; overflow: auto">
-                        <li ng-repeat="file in item.files"><a ng-href="{{item.files[0].url}}" target="_blank" >{{file.url | filename}}</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="alert alert-warning m-t-20" ng-if="!news.length">
-            <strong></strong> 데이터가 없습니다.
-        </div>
-    </div>
-
-</div>
-
-
-
-
-
-
-<!--<div class="container content">-->
-  <!--<h2 class="heading">SDSN News & Events</h2>-->
-
-
-  <!--<section id="content">-->
-    <!--<div class="container">-->
-      <!--<div class="row">-->
-        <!--<div class="col-lg-4" ng-repeat="item in items">-->
-          <!--<div class="card-container">-->
-            <!--<div class="image-container">-->
-              <!--<img ng-src="images/{{item.image}}" class="img-responsive img-percent" />-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div>-->
-            <!--<h3 class="title-text" data-ng-bind="item.title" data-ellipsis></h3>-->
-            <!--<p class="content-text" data-ng-bind="item.content" data-ellipsis></p>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</section>-->
-
-
-  <!--<h2 class="heading">Resources</h2>-->
-  <!--<section id="content">-->
-    <!--<div class="container">-->
-      <!--<div class="row">-->
-        <!--<div class="col-lg-3" ng-repeat="item in items">-->
-          <!--<div class="card-container">-->
-            <!--<div class="image-container">-->
-              <!--<img ng-src="images/{{item.image}}" class="img-responsive img-percent" />-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div>-->
-            <!--<h3 class="title-text" data-ng-bind="item.title" data-ellipsis></h3>-->
-            <!--<p class="content-text" data-ng-bind="item.content" data-ellipsis></p>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</section>-->
-
-<!--</div>-->
-<script type='text/javascript'>
-//  $(document).ready(function() {
-//    $('.carousel').carousel({
-//      interval: 3000
-//    })
-//  });
-</script>

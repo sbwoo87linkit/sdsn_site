@@ -1,0 +1,60 @@
+<h2 class="heading"> 가입자 목록
+    <small> - 기관회원 목록</small>
+</h2>
+
+<!--<pre>{{users}}</pre>-->
+
+
+<!--이름-->
+<!--테스트-->
+<!--소속-->
+<!--SDSN 기관-->
+<!--직책-->
+<!--팀장-->
+<!--연락처(휴대전화)-->
+<!--0105555555-->
+<!--연락처(사무실)-->
+<!--0234445555-->
+<!--이메일-->
+
+<table class="table">
+    <tr>
+        <th>이름</th>
+        <th>소속</th>
+        <th>직책</th>
+        <th>연락처(휴대폰)</th>
+        <th>연락처(사무실)</th>
+        <th>이메일</th>
+        <!--<th>-</th>-->
+    </tr>
+    <tr ng-repeat="user in users">
+        <td>{{user.name}}</td>
+        <td>{{user.organization}}</td>
+        <td>{{user.title}}</td>
+        <td>{{user.mobilephone}}</td>
+        <td>{{user.officephone}}</td>
+        <td>{{user.email}}</td>
+        <!--<td><button class="btn btn-xs" data-toggle="modal" data-target="#deleteModal">삭제</button></td>-->
+    </tr>
+</table>
+
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">확인</h4>
+            </div>
+            <div class="modal-body">
+                <h4>삭제하시겠습니까?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="delete()">삭제</button>
+            </div>
+
+        </div>
+    </div>
+</div>

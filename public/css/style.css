@@ -83,7 +83,7 @@ h3.heading {
   border-bottom: 1px solid #ddd;
   margin-bottom: 15px;
   padding-bottom: 10px;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 div.content {
@@ -164,7 +164,8 @@ article.post {
     position: relative;
     clear: both;
     overflow: hidden;
-    border: 1px solid #9d9d9d;
+  background: #eee;
+    border: 1px solid #ddd;
     padding: 5px;
 }
 
@@ -335,4 +336,52 @@ p, li, td {
 {
   display: block;
   height: 80px !important;
+}
+
+.join {
+  margin-top: 0px;
+}
+.join .form-control {
+  margin-bottom: 5px;
+}
+
+.item-wrapper {
+  padding:3px;
+  border:1px solid #ccc;
+}
+
+.item-table {
+  height: 80px;
+  width:100%;
+}
+
+.image-cell {
+  width:100px;
+  padding:5px;
+}
+
+.image-cell .logo {
+  padding:5px;
+  max-height: 70px;
+}
+
+.item-talbe .link {
+  display:block;
+  padding:5px
+}
+
+.site-link{
+  display: inline-block;
+  border:1px solid #ccc;
+  padding: 5px;
+  margin: 10px;
+}
+
+.site-link:hover{
+  border:1px solid #9d9d9d;
+}
+
+.site-link img{
+  height: 50px;
+  margin: 5px;
 }

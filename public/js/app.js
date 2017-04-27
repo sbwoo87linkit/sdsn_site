@@ -23,8 +23,8 @@ var interceptor = function($q, $location) {
 
 // var app = angular.module('app', ['ui.router', 'ngAnimate', 'toastr', 'angular-confirm']);
 // var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'satellizer', 'toastr','ngAnimate', 'ui.bootstrap.datetimepicker', 'naif.base64', 'angularModalService']);
-
-var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'satellizer', 'toastr','ngAnimate', 'ui.bootstrap.datetimepicker']);
+// ['ngSanitize']
+var app = angular.module('app', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'satellizer', 'toastr','ngAnimate', 'ui.bootstrap.datetimepicker']);
 
 app.filter('filename', function () {
     return function (str) {
@@ -352,30 +352,16 @@ app.config(function ($stateProvider, $urlRouterProvider, $authProvider) {
 			url: "/join",
 			templateUrl: "pages.ko/join/join.html"
 		})
-		.state('ko.join.info', {
-			url: "/info",
-			templateUrl: "pages.ko/join/join.info.html",
-			controller: function ($scope) {
-
-				// console.log('join us')
-
-				$scope.sendMail =  function() {
-					console.log('SEND MAIL')
-
-                    var link = "mailto:sbwoo87@gmail.com"
-                            + "?cc=sbwoo87@gmail.com"
-                            + "&subject=" + escape("This is my subject")
-                            + "&body=" + escape(document.getElementById('myText').value)
-                        ;
-
-                    window.location.href = link;
-
-
-
-				}
-
-			}
+		.state('ko.join.new', {
+			url: "/new",
+			templateUrl: "pages.ko/join/join.new.html",
+			controller: "ko.join.new.ctrl"
 		})
+        .state('ko.join.list', {
+            url: "/list",
+            templateUrl: "pages.ko/join/join.list.html",
+            controller: "ko.join.list.ctrl"
+        })
 
 
 

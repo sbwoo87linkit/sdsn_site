@@ -9,11 +9,10 @@
       </a>
     </div>
     <div class="col-md-6 text-right">
-
-      <span ng-if="! user">
+      <span ng-if="user.role != 'admin'">
         <a href="" ui-sref="ko.login"> 로그인</a>
         <span style="color: #ccc"> | </span>
-        <a href="" ui-sref="ko.signup"> 회원가입</a>
+        <a href="" ui-sref="ko.join.new"> 회원가입</a>
       </span>
       <span ng-if="user">
         <a href="" ng-controller="ko.login.ctrl" ng-click="logout()"> 로그아웃</a>
@@ -60,7 +59,7 @@
           <a href="" ui-sref="ko.board.list({'articleType':'issue'})" data-toggle="collapse" data-target=".navbar-collapse.in">RESOURCES</a>
         </li>
         <li>
-          <a href="" ui-sref="ko.join.info" data-toggle="collapse" data-target=".navbar-collapse.in">JOIN US</a>
+          <a href="" ui-sref="ko.join.new" data-toggle="collapse" data-target=".navbar-collapse.in">JOIN US</a>
         </li>
       </ul>
     </div>

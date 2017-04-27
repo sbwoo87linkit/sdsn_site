@@ -96,7 +96,7 @@ exports.list = function(req, res) {
                 ]
             }
         }
-        console.log("ARGS --- ", args);
+        // console.log("ARGS --- ", args);
         var result= yield model.list(Number(req.query.page), Number(req.query.rows), args, db.collection('news'));
         res.status(200).send(result);
     }).catch(function(err) {
@@ -130,7 +130,7 @@ exports.update =function (req,res){
     co(function*(){
         var args= {sid : Number(req.params.sid)};
         delete(req.body._id);
-        console.log("update:", Number(req.params.sid), req.body);
+        // console.log("update:", Number(req.params.sid), req.body);
         var result = yield model.updateDoc(args, req.body, db.collection('news'));
         if(result.n ===1)
             res.status(200).send(result);

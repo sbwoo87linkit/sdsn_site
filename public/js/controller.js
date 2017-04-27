@@ -4,7 +4,7 @@ app.controller('ko.board.ctrl', function ($scope, $stateParams, boardService, to
         window.history.back();
     }
 
-    $scope.viewTitle = "" ;
+    $scope.viewTitle = "";
     // console.log("ko.board.ctrl ", $stateParams)
 
 })
@@ -139,6 +139,7 @@ app.controller('ko.board.create.ctrl', function ($scope, $window, $rootScope, $s
                 transformRequest: angular.identity,
                 headers: {'Content-Type': undefined}
             }).then(function (res) {
+                console.log(res.data);
                 $scope.data.images.push({url: "/files/" + res.data});
                 $scope.isUploading = false;
             }, function (err) {
@@ -161,6 +162,7 @@ app.controller('ko.board.create.ctrl', function ($scope, $window, $rootScope, $s
                 transformRequest: angular.identity,
                 headers: {'Content-Type': undefined}
             }).then(function (res) {
+                console.log(res.data);
                 $scope.data.files.push({url: "/files/" + res.data});
                 $scope.isUploading = false;
             }, function (err) {

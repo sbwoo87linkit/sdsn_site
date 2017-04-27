@@ -5,38 +5,32 @@
         <div class="side-title">
           <h5>NEWS&EVENTS</h5>
         </div>
-
         <ul class="nav nav-pills nav-stacked">
           <li role="presentation" ui-sref-active="active">
             <a ui-sref="ko.board.list({'articleType':'notice'})">공지사항</a>
           </li>
           <li role="presentation" ui-sref-active="active">
-            <a ui-sref="ko.board.list({'articleType':'news'})">NEWS</a>
+            <a ui-sref="ko.board.list({'articleType':'korea-sdsn'})">SDSN Korea 소식</a>
           </li>
           <li role="presentation" ui-sref-active="active">
             <a ui-sref="ko.board.list({'articleType':'un-sdsn'})">UN SDSN 소식</a>
           </li>
-          <li role="presentation" ui-sref-active="active">
-            <a ui-sref="ko.board.list({'articleType':'korea-sdsn'})">SDSN Korea 소개</a>
-          </li>
         </ul>
       </div>
-
 
       <div ng-if="menu==='resources'">
         <div class="side-title">
           <h5>RESOURCES</h5>
         </div>
-
         <ul class="nav nav-pills nav-stacked">
           <li role="presentation" ui-sref-active="active">
             <a ui-sref="ko.board.list({'articleType':'issue'})">연구 발간물</a>
           </li>
           <li role="presentation" ui-sref-active="active">
-            <a ui-sref="ko.board.list({'articleType':'public'})">성명서</a>
+            <a ui-sref="ko.board.list({'articleType':'event-docs'})">행사 자료집</a>
           </li>
           <li role="presentation" ui-sref-active="active">
-            <a ui-sref="ko.board.list({'articleType':'event-docs'})">행사자료집</a>
+            <a ui-sref="ko.board.list({'articleType':'public'})">성명서</a>
           </li>
         </ul>
       </div>

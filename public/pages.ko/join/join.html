@@ -8,8 +8,11 @@
 
 
       <ul class="nav nav-pills nav-stacked">
-        <li role="presentation" ng-class="{'active':$state.includes('*.join.info')}">
-          <a ui-sref="ko.join.info">JOIN US</a>
+        <li role="presentation" ng-class="{'active':$state.includes('*.join.new')}">
+          <a ui-sref="ko.join.new">JOIN US</a>
+        </li>
+        <li ng-if="user.role === 'admin'" role="presentation" ng-class="{'active':$state.includes('*.join.list')}">
+          <a ui-sref="ko.join.list">가입자 목록</a>
         </li>
       </ul>
 

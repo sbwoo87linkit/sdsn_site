@@ -54,6 +54,8 @@ exports.login = function (req, res) {
 //회원가입은 role지정. 바로 가입
 exports.signup = function (req, res) {
 
+    // return res.status(200).end('signup');
+
     if (!req.body.email || !req.body.password) {
         return res.status(400).send("You must send the email and the password");
     }
@@ -75,6 +77,35 @@ exports.signup = function (req, res) {
     });
 
 };
+
+//회원가입은 role지정. 바로 가입
+exports.list = function (req, res) {
+
+    // return res.status(200).end('userlist');
+
+    // co(function*() {
+    //     var args;
+    //     // console.log("ARGS --- ", args);
+    //     var result= yield model.list(Number(req.query.page), Number(req.query.rows), args, db.collection('users'));
+    //     res.status(200).send(result);
+    // }).catch(function(err) {
+    //     console.log(err);
+    //     console.log(err.stack);
+    //     res.status(400).end();
+    // });
+
+    // db.collection('users').find()
+
+    db.collection('users').find({ role: { $ne: 'admin' } }).sort({"_id": -1}).toArray(function(err, results) {
+        console.log(results)
+        // send HTML file populated with quotes here
+        res.status(200).send(results);
+    })
+
+};
+
+
+
 
 
 //페이스북 로그인
@@ -106,7 +137,6 @@ exports.login_facebook = function(req,res){
             });
         }
       }
-
   }
 
   }).catch(function(err){

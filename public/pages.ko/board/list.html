@@ -2,20 +2,7 @@
     <small> - 목록</small>
 </h2>
 
-<!--<h1>{{boardType}}</h1>-->
-<!--<pre>{{items}}</pre>-->
-
 <div class="row" style="">
-    <!--<div class="col-lg-6">-->
-        <!--<div class="input-group">-->
-            <!--<input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty"-->
-                   <!--ng-model="data.searchText" placeholder="Search for...">-->
-            <!--<span class="input-group-btn">-->
-                <!--<button class="btn btn-default" type="button" ng-click="search()">검색</button>-->
-                <!--<button class="btn btn-default" type="button" ng-click="reset()">리셋</button>-->
-            <!--</span>-->
-        <!--</div>-->
-    <!--</div>-->
     <div class="col-lg-6"></div>
     <div class="col-lg-6 text-right">
         <button type="button" style="margin-left: 20px;" class="btn btn-success"
@@ -25,21 +12,6 @@
         </button>
     </div>
 </div>
-
-
-<!--<article ng-if="boardType =='gallary'" class="post bottom-line" ng-repeat="item in items">-->
-    <!--<header>-->
-        <!--<h3>-->
-            <!--<a ng-href="{{item.files[0].url}}" target="_blank">{{item.title}}</a>-->
-        <!--</h3>-->
-        <!--<span><i class="fa fa-clock-o"></i><time datetime="{{item.date}}">{{item.date}}</time>.</span>-->
-        <!--<p>-->
-            <!--<a ng-href="{{item.files[0].url}}" target="_blank">-->
-                <!--<img ng-src="{{item.images[0].url}}" alt="" style="max-height:100px; margin:10px 0px;">-->
-            <!--</a>-->
-        <!--</p>-->
-    <!--</header>-->
-<!--</article>-->
 
 <!--발간물/행사자료집(gallary) 게시판-->
 <div ng-if="boardType =='gallary'" class="row">
@@ -125,36 +97,13 @@
 <!--일반 계시판-->
 <article ng-if="boardType =='board'" class="post bottom-line" ng-repeat="item in items">
     <header>
-        <h3><a ui-sref="ko.board.view({'articleType': item.articleType, 'articleId':item.sid})">{{item.title}}</a>
-        </h3>
-        <span><i class="fa fa-clock-o"></i><time datetime="{{item.date}}">{{item.date}}</time>.</span>
-        <!--<p><pre>{{item.content}}</pre></p>-->
-        <!--<img ng-src="itme.image" alt="">-->
-        <p>
-            <pre class="bg-white height-100">{{ item.content | limitTo: 50 }}{{item.content.length > 50 ? '...' : ''}}</pre>
-        </p>
+        <h4><a ui-sref="ko.board.view({'articleType': item.articleType, 'articleId':item.sid})">{{item.title}}</a>
+        </h4>
+        <span style="font-size: small"><i class="fa fa-clock-o"></i><time datetime="{{item.date}}">{{item.date | date : "y.MM.dd"}}</time></span>
+        <div ng-bind-html="item.content | linky:'_blank'" style="white-space: pre-line; font-size: small; margin-top: 5px">
+        </div>
     </header>
 </article>
-
-
-<!--<article class="post bottom-line" ng-repeat="item in items">-->
-    <!--<header>-->
-        <!--<h3><a ui-sref="ko.board.view({'articleType': item.articleType, 'articleId':item.sid})">{{item.title}}</a>-->
-        <!--</h3>-->
-        <!--<span><i class="fa fa-clock-o"></i><time datetime="{{item.date}}">{{item.date}}</time>.</span>-->
-        <!--&lt;!&ndash;<p><pre>{{item.content}}</pre></p>&ndash;&gt;-->
-        <!--&lt;!&ndash;<img ng-src="itme.image" alt="">&ndash;&gt;-->
-        <!--<p>-->
-            <!--<a ng-href="{{item.files[0].url}}" target="_blank">-->
-                <!--<img ng-src="{{item.images[0].url}}" alt="" style="max-height:100px; margin:10px 0px;">-->
-            <!--</a>-->
-        <!--</p>-->
-        <!--<p>-->
-            <!--<pre class="bg-white height-100">{{ item.content | limitTo: 50 }}{{item.content.length > 50 ? '...' : ''}}</pre>-->
-        <!--</p>-->
-    <!--</header>-->
-<!--</article>-->
-
 
 <div ng-if="items.length">
     <ul uib-pagination total-items="pagination.totalItems"
