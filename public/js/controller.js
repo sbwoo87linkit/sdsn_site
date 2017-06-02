@@ -326,7 +326,7 @@ app.controller('ko.login.ctrl', function ($scope, $window, $rootScope, $statePar
 
     $scope.data = {
         email:"sdsn_korea@korea.ac.kr",
-        password:"admin1234"
+        password:""
     }
 
     $scope.login = function () {

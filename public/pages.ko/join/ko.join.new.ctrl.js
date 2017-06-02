@@ -9,8 +9,8 @@ app.controller('ko.join.new.ctrl', function ($scope, $state, $stateParams, userS
         title: '팀장',
         mobilephone: '0105555555',
         officephone:'0234445555',
-        email: 'test@gmail.com',
-        password: 'password'
+        email: 'sdsn_korea@korea.ac.kr',
+        password: 'admin1234'
     }
 
     $scope.save = function () {

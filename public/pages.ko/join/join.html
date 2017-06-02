@@ -11,9 +11,9 @@
         <li role="presentation" ng-class="{'active':$state.includes('*.join.new')}">
           <a ui-sref="ko.join.new">JOIN US</a>
         </li>
-        <li ng-if="user.role === 'admin'" role="presentation" ng-class="{'active':$state.includes('*.join.list')}">
-          <a ui-sref="ko.join.list">가입자 목록</a>
-        </li>
+        <!--<li ng-if="user.role === 'admin'" role="presentation" ng-class="{'active':$state.includes('*.join.list')}">-->
+          <!--<a ui-sref="ko.join.list">가입자 목록</a>-->
+        <!--</li>-->
       </ul>
 
       <div ng-include="'pages.ko/banner.html'">

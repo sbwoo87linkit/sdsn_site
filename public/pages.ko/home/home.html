@@ -1,14 +1,11 @@
-
-
-
 <div class="container">
     <!--SDSN Korea 소식, Notice-->
     <div class="row">
         <div class="col-md-8">
             <!--SDSN Korea 소식-->
             <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
-                <div class="col-lg-8" style="font-size: 30px">SDSN Korea 소식</div>
-                <div class="col-lg-4 text-right" style="margin-top: 20px;"><a
+                <div class="col-md-8" style="font-size: 30px">SDSN Korea 소식</div>
+                <div class="col-md-4 text-right" style="margin-top: 20px;"><a
                         ui-sref="ko.board.list({'articleType':'korea-sdsn'})">+ 더보기</a></div>
             </div>
             <div style="height: 300px;">
@@ -20,9 +17,6 @@
                                  ui-sref="ko.board.view({'articleType':'korea-sdsn', 'articleId': slide.sid})"
                                  style="margin:auto; width:100%; height: auto;">
                         </a>
-                        <!--<div class="carousel-caption" style="background: rgba(0,0,0,0.0)">-->
-                            <!--<h3>{{slide.title}}</h3>-->
-                        <!--</div>-->
                     </div>
                 </div>
                 <div class="alert alert-warning m-t-20" ng-if="!slides.length">
@@ -33,130 +27,90 @@
         <div class="col-md-4">
             <!--공지사항-->
             <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
-                <div class="col-lg-8" style="font-size: 30px">공지사항</div>
-                <div class="col-lg-4 text-right" style="margin-top: 20px;"><a
+                <div class="col-md-8" style="font-size: 30px">공지사항</div>
+                <div class="col-md-4 text-right" style="margin-top: 20px;"><a
                         ui-sref="ko.board.list({'articleType':'notice'})">+ 더보기</a></div>
             </div>
-
-            <div class="">
-                <h4 class="list-bar" ng-repeat="item in notices">
-                    <a ui-sref="ko.board.view({'articleType':'notice', 'articleId': item.sid})">{{item.title}}</a>
-                </h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <div ng-repeat="item in notices"
+                         style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-bottom: 7px">
+                        <a ui-sref="ko.board.view({'articleType':'notice', 'articleId': item.sid})">{{item.title}}</a>
+                    </div>
+                </div>
             </div>
+
             <div class="alert alert-warning m-t-20" ng-if="!notices.length">
                 <strong></strong> 데이터가 없습니다.
             </div>
         </div>
     </div>
 
-    <!--연구발간물-->
-    <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
-        <div class="col-lg-8" style="font-size: 30px">연구발간물</div>
-        <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'issue'})">+
-            더보기</a></div>
-    </div>
-    <!--<div class="row">-->
-        <!--<div class="col-lg-3" ng-repeat="item in issues">-->
-            <!--<div class="card-container">-->
-                <!--<div class="image-container text-center">-->
-                    <!--<a ng-href="{{item.files[0].url}}" target="_blank"><img ng-src="{{item.images[0].url}}"-->
-                                                                            <!--style="height:180px;border:1px solid #ddd;"/></a>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div>-->
-                <!--<a ng-href="{{item.files[0].url}}" target="_blank">{{item.title}}</a>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="alert alert-warning m-t-20" ng-if="!issues.length">-->
-            <!--<strong></strong> 데이터가 없습니다.-->
-        <!--</div>-->
-    <!--</div>-->
-
-    <div class="row">
-        <div class="col-lg-3" ng-repeat="item in issues">
-            <div class="" style="background: #fff; padding: 5px; border:1px solid #fff">
-                <div class="text-center">
-                    <a ng-href="{{item.files[0].url}}" target="_blank"><img ng-src="{{item.images[0].url}}"
-                                                                            style="height:180px;border:1px solid #ddd;"/></a>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-4">
+            <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+                <div class="col-md-8" style="font-size: 30px">연구발간물</div>
+                <div class="col-md-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'issue'})">+
+                    더보기</a></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div ng-repeat="item in issues"
+                         style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-bottom: 7px">
+                        <a ui-sref="ko.board.view({'articleType':'notice', 'articleId': item.sid})">{{item.title}}</a>
+                    </div>
                 </div>
-            </div>
-            <div class="text-center">
-                <a ng-href="{{item.files[0].url}}" target="_blank" style="font-size: 0.9em">{{item.title}}</a>
-            </div>
-        </div>
-        <div class="alert alert-warning m-t-20" ng-if="!issues.length">
-            <strong></strong> 데이터가 없습니다.
-        </div>
-    </div>
-
-
-
-    <!--행사자료집-->
-    <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
-        <div class="col-lg-8" style="font-size: 30px">행사자료집</div>
-        <div class="col-lg-4 text-right" style="margin-top: 20px;"><a
-                ui-sref="ko.board.list({'articleType':'event-docs'})">+ 더보기</a></div>
-    </div>
-    <!--<div class="row">-->
-        <!--<div class="col-lg-6" ng-repeat="item in eventdocs">-->
-            <!--<div class="card-container" style="margin-top: 10px;">-->
-                <!--<div>-->
-                    <!--<h4 style="padding-left: 10px;">{{item.title}}</h4>-->
-                    <!--<ul style="height: 80px; overflow: auto">-->
-                        <!--<li ng-repeat="file in item.files"><a ng-href="{{item.files[0].url}}" target="_blank">{{file.url-->
-                            <!--| filename}}</a></li>-->
-                    <!--</ul>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="alert alert-warning m-t-20" ng-if="!eventdocs.length">-->
-            <!--<strong></strong> 데이터가 없습니다.-->
-        <!--</div>-->
-    <!--</div>-->
-    <div class="row">
-        <div class="col-lg-3" ng-repeat="item in eventdocs">
-            <div class="" style="background: #fff; padding: 5px; border:1px solid #fff">
-                <div class="text-center">
-                    <a ng-href="{{item.files[0].url}}" target="_blank"><img ng-src="{{item.images[0].url}}"
-                                                                            style="height:180px;border:1px solid #ddd;"/></a>
-                </div>
-            </div>
-            <div class="text-center">
-                <a ng-href="{{item.files[0].url}}" target="_blank" style="font-size: 0.9em">{{item.title}}</a>
-            </div>
-        </div>
-        <div class="alert alert-warning m-t-20" ng-if="!issues.length">
-            <strong></strong> 데이터가 없습니다.
-        </div>
-    </div>
-
-    <!--성명서-->
-    <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
-        <div class="col-lg-8" style="font-size: 30px">성명서</div>
-        <div class="col-lg-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'public'})">+
-            더보기</a></div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6" ng-repeat="item in publics">
-            <div class="card-container" style="margin-top: 10px;">
-                <div>
-                    <h4 style="padding-left: 10px;">{{item.title}}</h4>
-                    <ul style="height: 80px; overflow: auto">
-                        <li ng-repeat="file in item.files"><a ng-href="{{item.files[0].url}}" target="_blank">{{file.url
-                            | filename}}</a></li>
-                    </ul>
+                <div class="alert alert-warning m-t-20" ng-if="!issues.length">
+                    <strong></strong> 데이터가 없습니다.
                 </div>
             </div>
         </div>
-        <div class="alert alert-warning m-t-20" ng-if="!publics.length">
-            <strong></strong> 데이터가 없습니다.
+
+        <div class="col-md-4">
+            <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+                <div class="col-md-8" style="font-size: 30px">행사자료집</div>
+                <div class="col-md-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'event-docs'})">+
+                    더보기</a></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div ng-repeat="item in eventdocs"
+                         style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-bottom: 7px">
+                        <a ui-sref="ko.board.view({'articleType':'notice', 'articleId': item.sid})">{{item.title}}</a>
+                    </div>
+                </div>
+                <div class="alert alert-warning m-t-20" ng-if="!eventdocs.length">
+                    <strong></strong> 데이터가 없습니다.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row" style="color:#38ad5d; border-bottom: 2px solid #A2734F; margin:20px 0">
+                <div class="col-md-8" style="font-size: 30px">성명서</div>
+                <div class="col-md-4 text-right" style="margin-top: 20px;"><a ui-sref="ko.board.list({'articleType':'public'})">+
+                    더보기</a></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div ng-repeat="item in publics"
+                         style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-bottom: 7px">
+                        <a ui-sref="ko.board.view({'articleType':'notice', 'articleId': item.sid})">{{item.title}}</a>
+                    </div>
+                </div>
+                <div class="alert alert-warning m-t-20" ng-if="!publics.length">
+                    <strong></strong> 데이터가 없습니다.
+                </div>
+            </div>
         </div>
     </div>
+
+
+
 </div>
 
 <!--유관기관 링크 Static-->
 <div class="container">
-    <div class='row'>
+    <div class='row'  style="margin-top: 30px; margin-bottom: 20px">
         <div class='col-md-12'>
             <div class="link-wrapper">
                 <a class="site-link" href="http://www.unsdsn.org/" target="_blank" data-toggle="tooltip" data-placement="top" title="UN SDSN">
@@ -189,7 +143,7 @@
                          alt=""></a>
                 <a class="site-link" href="http://www.greengrowthknowledge.org/" target="_blank" data-toggle="tooltip" data-placement="top" title="Green Growth Knowledge Platform">
                     <img class="logo"
-                         src="images/logos/green growth knowledge platform.png"
+                         src="images/logos/green_growth_knowledge_platform.png"
                          alt=""></a>
                 <a class="site-link" href="http://gggi.org/" target="_blank" data-toggle="tooltip" data-placement="top" title="GGGI">
                     <img class="logo"
@@ -207,10 +161,10 @@
                     <img class="logo"
                          src="images/logos/DDPP.png"
                          alt=""></a>
-                <a class="site-link" href="http://www.iddri.org/" target="_blank" data-toggle="tooltip" data-placement="top" title="IDDRI">
-                    <img class="logo"
-                         src="images/logos/IDDRI.jpg"
-                         alt=""></a>
+                <!--<a class="site-link" href="http://www.iddri.org/" target="_blank" data-toggle="tooltip" data-placement="top" title="IDDRI">-->
+                    <!--<img class="logo"-->
+                         <!--src="images/logos/IDDRI.jpg"-->
+                         <!--alt=""></a>-->
                 <a class="site-link" href="http://www.die-gdi.de/en/" target="_blank" data-toggle="tooltip" data-placement="top" title="DIE">
                     <img class="logo"
                          src="images/logos/DIE.jpg"
