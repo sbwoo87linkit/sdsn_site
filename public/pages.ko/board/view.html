@@ -30,27 +30,6 @@
     </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
-
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-    /*
-     var disqus_config = function () {
-     this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-     };
-     */
-    (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://sdsnkorea.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
 
 <div class="text-right">
     <button class="btn btn-default" ng-click="goBack()">Back</button>
@@ -60,6 +39,122 @@
     </button>
     <button class="btn btn-danger"  ng-if="user.role === 'admin'" data-toggle="modal" data-target="#deleteModal">삭제</button>
 </div>
+
+<h1>{{$stateParams.articleType}}</h1>
+
+<div disqus="id"></div>
+<!--<dir-disqus config="disqusConfig"></dir-disqus>-->
+
+<!--<dir-disqus disqus-shortname="'sdsnkorea'"-->
+            <!--disqus-identifier="'notice'"-->
+            <!--disqus-title="'NOTICE...공지사항'"-->
+            <!--...>-->
+<!--</dir-disqus>-->
+
+<!--<div ng-if="$stateParams.articleType === 'notice'">-->
+    <!--<dir-disqus config="disqusConfigNotice"></dir-disqus>-->
+<!--</div>-->
+<!--&lt;!&ndash;<dir-disqus disqus-shortname="sdsnkorea-notice"></dir-disqus>&ndash;&gt;-->
+
+<!--<div ng-if="$stateParams.articleType === 'korea-sdsn'">-->
+    <!--<dir-disqus config="disqusConfigKoreaSdsn" ></dir-disqus>-->
+<!--</div>-->
+
+<!--<hr>-->
+
+
+<!--<div id="disqus_thread"></div>-->
+
+<!--<div ng-if="$stateParams.articleType === 'notice'">-->
+    <!--<script>-->
+
+        <!--/**-->
+         <!--*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.-->
+         <!--*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/-->
+        <!--/*-->
+         <!--var disqus_config = function () {-->
+         <!--this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable-->
+         <!--this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable-->
+         <!--};-->
+         <!--*/-->
+        <!--(function() { // DON'T EDIT BELOW THIS LINE-->
+            <!--var d = document, s = d.createElement('script');-->
+            <!--s.src = 'https://sdsnkorea-notice.disqus.com/embed.js';-->
+            <!--s.setAttribute('data-timestamp', +new Date());-->
+            <!--(d.head || d.body).appendChild(s);-->
+        <!--})();-->
+    <!--</script>-->
+    <!--<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>-->
+<!--</div>-->
+
+<!--<div ng-if="$stateParams.articleType === 'korea-sdsn'">-->
+    <!--<script>-->
+
+        <!--/**-->
+         <!--*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.-->
+         <!--*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/-->
+        <!--/*-->
+         <!--var disqus_config = function () {-->
+         <!--this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable-->
+         <!--this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable-->
+         <!--};-->
+         <!--*/-->
+        <!--(function() { // DON'T EDIT BELOW THIS LINE-->
+            <!--var d = document, s = d.createElement('script');-->
+            <!--s.src = 'https://sdsnkorea-koreainfo.disqus.com/embed.js';-->
+            <!--s.setAttribute('data-timestamp', +new Date());-->
+            <!--(d.head || d.body).appendChild(s);-->
+        <!--})();-->
+    <!--</script>-->
+    <!--<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>-->
+<!--</div>-->
+
+
+<!--<div ng-if="$stateParams.articleType === 'un-sdsn'">-->
+    <!--<script>-->
+
+        <!--/**-->
+         <!--*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.-->
+         <!--*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/-->
+        <!--/*-->
+         <!--var disqus_config = function () {-->
+         <!--this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable-->
+         <!--this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable-->
+         <!--};-->
+         <!--*/-->
+        <!--(function() { // DON'T EDIT BELOW THIS LINE-->
+            <!--var d = document, s = d.createElement('script');-->
+            <!--s.src = 'https://sdsnkorea-uninfo.disqus.com/embed.js';-->
+            <!--s.setAttribute('data-timestamp', +new Date());-->
+            <!--(d.head || d.body).appendChild(s);-->
+        <!--})();-->
+    <!--</script>-->
+    <!--<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>-->
+<!--</div>-->
+
+<!--<div ng-if="$stateParams.articleType === 'un-sdsnaa'">-->
+    <!--<script>-->
+
+        <!--/**-->
+         <!--*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.-->
+         <!--*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/-->
+        <!--/*-->
+         <!--var disqus_config = function () {-->
+         <!--this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable-->
+         <!--this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable-->
+         <!--};-->
+         <!--*/-->
+        <!--(function() { // DON'T EDIT BELOW THIS LINE-->
+            <!--var d = document, s = d.createElement('script');-->
+            <!--s.src = 'https://sdsnkorea-uninfo.disqus.com/embed.js';-->
+            <!--s.setAttribute('data-timestamp', +new Date());-->
+            <!--(d.head || d.body).appendChild(s);-->
+        <!--})();-->
+    <!--</script>-->
+    <!--<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>-->
+<!--</div>-->
+
+
 
 <div class="modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog" role="document">

@@ -9,11 +9,11 @@
       </a>
     </div>
     <div class="col-md-6 text-right">
-      <!--<span ng-if="user.role != 'admin'">-->
-        <!--<a href="" ui-sref="ko.login"> 로그인</a>-->
+      <span ng-if="user.role != 'admin'">
+        <a href="" ui-sref="ko.login"> 로그인</a>
         <!--<span style="color: #ccc"> | </span>-->
         <!--<a href="" ui-sref="ko.join.new"> 회원가입</a>-->
-      <!--</span>-->
+      </span>
       <span ng-if="user">
         <a href="" ng-controller="ko.login.ctrl" ng-click="logout()"> 로그아웃</a>
       </span>

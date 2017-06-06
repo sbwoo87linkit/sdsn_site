@@ -393,3 +393,7 @@ p, li, td {
   height: 40px;
   margin: 3px;
 }
+
+div.tooltip-inner {
+  max-width: 550px;
+}

@@ -76,7 +76,7 @@ app.controller('ko.board.list.ctrl', function ($scope, $rootScope, $window, $sta
 
 })
 
-app.controller('ko.board.view.ctrl', function ($scope, $rootScope, $window, $stateParams, boardService, menuService, toastr) {
+app.controller('ko.board.view.ctrl', function ($scope, $rootScope, $window, $stateParams, boardService, menuService, toastr, $location) {
 
     // if ($stateParams.articleType === 'un-sdsn') $scope.viewTitle = "UN SDSN 소식";
     // if ($stateParams.articleType === 'korea-sdsn') $scope.viewTitle = "Korea SDSN 소개";
@@ -87,6 +87,8 @@ app.controller('ko.board.view.ctrl', function ($scope, $rootScope, $window, $sta
     $rootScope.menu = menuService.get($stateParams).menu;
     $scope.viewTitle = menuService.get($stateParams).boardTitle;
 
+    console.log($rootScope.menu);
+    console.log($stateParams.articleType);
 
     $scope.delete = function () {
 
@@ -101,14 +103,18 @@ app.controller('ko.board.view.ctrl', function ($scope, $rootScope, $window, $sta
 
     boardService.get($stateParams.articleId).then(
         function (result) {
-            console.log(result);
+            // console.log(result);
             $scope.item = result.data[0];
         }, function (err) {
             alert(err);
         }
     )
 
+    // console.log($location.$$url);
+    $scope.id = $location.$$url;
+
 })
+
 app.controller('ko.board.create.ctrl', function ($scope, $window, $rootScope, $stateParams, $http, boardService, menuService, toastr) {
 
     $rootScope.menu = menuService.get($stateParams).menu;
@@ -128,6 +134,7 @@ app.controller('ko.board.create.ctrl', function ($scope, $window, $rootScope, $s
     $scope.deleteImage = function (index) {
         $scope.data.images.splice(index, 1)
     }
+
     $scope.imageChanged = function (element) {
 
         $scope.isUploading = true;
@@ -139,10 +146,11 @@ app.controller('ko.board.create.ctrl', function ($scope, $window, $rootScope, $s
                 transformRequest: angular.identity,
                 headers: {'Content-Type': undefined}
             }).then(function (res) {
+                $scope.isUploading = false;
                 console.log(res.data);
                 $scope.data.images.push({url: "/files/" + res.data});
-                $scope.isUploading = false;
             }, function (err) {
+                $scope.isUploading = false;
                 console.log("error", err)
             });
         });
@@ -151,6 +159,9 @@ app.controller('ko.board.create.ctrl', function ($scope, $window, $rootScope, $s
     $scope.deleteFile = function (index) {
         $scope.data.files.splice(index, 1)
     }
+
+    $scope.isUploading = false;
+
     $scope.fileChanged = function (element) {
 
         $scope.isUploading = true;
@@ -166,6 +177,7 @@ app.controller('ko.board.create.ctrl', function ($scope, $window, $rootScope, $s
                 $scope.data.files.push({url: "/files/" + res.data});
                 $scope.isUploading = false;
             }, function (err) {
+                $scope.isUploading = false;
                 console.log("error", err)
             });
         });
@@ -205,6 +217,7 @@ app.controller('ko.board.create.ctrl', function ($scope, $window, $rootScope, $s
     }
 
 })
+
 app.controller('ko.board.edit.ctrl', function ($scope, $rootScope, $window, $http, $stateParams, boardService, menuService, toastr) {
 
 
@@ -245,6 +258,7 @@ app.controller('ko.board.edit.ctrl', function ($scope, $rootScope, $window, $htt
     }
     $scope.imageChanged = function (element) {
 
+        $scope.isUploading = true;
         $scope.$apply(function (scope) {
             var file = element.files[0];
             var fd = new FormData();
@@ -254,8 +268,10 @@ app.controller('ko.board.edit.ctrl', function ($scope, $rootScope, $window, $htt
                 headers: {'Content-Type': undefined}
             }).then(function (res) {
                 $scope.data.images.push({url: "/files/" + res.data});
+                $scope.isUploading = false;
             }, function (err) {
                 console.log("error", err)
+                $scope.isUploading = false;
             });
         });
     };
@@ -265,6 +281,7 @@ app.controller('ko.board.edit.ctrl', function ($scope, $rootScope, $window, $htt
     }
     $scope.fileChanged = function (element) {
 
+        $scope.isUploading = true;
         $scope.$apply(function (scope) {
             var file = element.files[0];
             var fd = new FormData();
@@ -274,8 +291,10 @@ app.controller('ko.board.edit.ctrl', function ($scope, $rootScope, $window, $htt
                 headers: {'Content-Type': undefined}
             }).then(function (res) {
                 $scope.data.files.push({url: "/files/" + res.data});
+                $scope.isUploading = false;
             }, function (err) {
                 console.log("error", err)
+                $scope.isUploading = false;
             });
         });
     };
