@@ -50,7 +50,7 @@ app.config(function ($httpProvider, toastrConfig) {
 	// });
 })
 
-app.config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider, $disqusProvider, ) {
+app.config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider, $disqusProvider) {
 
     $disqusProvider.setShortname('sdsnkoreaorg'); // Configure the disqus shortname
     $locationProvider.hashPrefix('!');                 // Disqus needs hashbang in urls. If you are using pushstate then no need for this.

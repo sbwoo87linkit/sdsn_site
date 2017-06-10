@@ -2,6 +2,11 @@
 
 
 <form>
+  <div ng-if="data.articleType === 'korea-sdsn' || data.articleType === 'un-sdsn'" class="form-group">
+    <label>공지게시판 공유</label>
+    <input type="checkbox" ng-model="data.share">
+  </div>
+
   <div class="form-group">
     <label for="boardTitle">제목</label>
     <input ng-model="data.title" type="text" class="form-control" id="boardTitle" placeholder="제목">

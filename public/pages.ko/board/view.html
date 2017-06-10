@@ -1,6 +1,12 @@
 <h2 class="heading"> {{ viewTitle }} <small> - 보기</small></h2>
 
 <div class="row bottom-line">
+    <div class="col-md-2"><strong>공지게시판 공유 </strong></div>
+    <div class="col-md-10">
+        <span class="badge" ng-style="{true: {background: 'green'}, false: {background: '#999'}}[item.share]">{{item.share ? '공유함' : '공유하지 않음'}}</span>
+    </div>
+</div>
+<div class="row bottom-line">
     <div class="col-md-2"><strong>제목 </strong></div>
     <div class="col-md-10">{{item.title}}</div>
 </div>
@@ -20,7 +26,7 @@
 <div class="row bottom-line" ng-if="item.images.length">
     <div class="col-md-2"><strong>이미지</strong></div>
     <div class="col-md-10">
-        <img ng-src="{{image.url}}" alt="" ng-repeat="image in item.images" style="max-width:100%; height: auto; margin:10px 0px;">
+        <img ng-src="{{image.url}}" alt="" ng-repeat="image in item.images" style="width:80%; max-width:80%; height: auto; margin:10px 0px;">
     </div>
 </div>
 <div class="row bottom-line" ng-if="item.files.length">
@@ -40,9 +46,8 @@
     <button class="btn btn-danger"  ng-if="user.role === 'admin'" data-toggle="modal" data-target="#deleteModal">삭제</button>
 </div>
 
-<h1>{{$stateParams.articleType}}</h1>
-
 <div disqus="id"></div>
+
 <!--<dir-disqus config="disqusConfig"></dir-disqus>-->
 
 <!--<dir-disqus disqus-shortname="'sdsnkorea'"-->

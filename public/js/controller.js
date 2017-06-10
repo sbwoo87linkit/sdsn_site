@@ -31,7 +31,9 @@ app.controller('ko.board.list.ctrl', function ($scope, $rootScope, $window, $sta
         $scope.currentPage = page;
         boardService.load($stateParams.articleType, $scope.pagination.currentPage, $scope.pagination.itemsPerPage, $scope.data.searchText).then(
             function (results) {
-                $scope.items = results.data.docs;
+                // $scope.items = results.data.docs;
+                $scope.items = results.data;
+                console.log($scope.items)
                 $scope.pagination.totalItems = results.data.totalcount;
             },
             function (err) {

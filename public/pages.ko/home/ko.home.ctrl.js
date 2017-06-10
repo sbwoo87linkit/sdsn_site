@@ -16,7 +16,7 @@ app.controller('ko.home.ctrl', function ($scope, boardService) {
         function (results) {
           // console.log(results);
 
-          $scope.slides = results.data.docs;
+          $scope.slides = results.data;
           // slide가 int type id를 필요로 함
           var id = 0;
           $scope.slides.forEach(function (slide) {
@@ -29,10 +29,10 @@ app.controller('ko.home.ctrl', function ($scope, boardService) {
         }
     );
 
-    boardService.load('notice', 1, 3, '').then(
+    boardService.load('notice', 1, 5, '').then(
         function (results) {
           console.log(results);
-          $scope.notices = results.data.docs;
+          $scope.notices = results.data;
 
         },
         function (err) {
@@ -43,7 +43,7 @@ app.controller('ko.home.ctrl', function ($scope, boardService) {
       boardService.load('issue', 1, 4, '').then(
           function (results) {
               console.log(results);
-              $scope.issues = results.data.docs;
+              $scope.issues = results.data;
 
           },
           function (err) {
@@ -54,7 +54,7 @@ app.controller('ko.home.ctrl', function ($scope, boardService) {
       boardService.load('public', 1, 4, '').then(
           function (results) {
               console.log(results);
-              $scope.publics = results.data.docs;
+              $scope.publics = results.data;
 
           },
           function (err) {
@@ -65,7 +65,7 @@ app.controller('ko.home.ctrl', function ($scope, boardService) {
       boardService.load('event-docs', 1, 4, '').then(
           function (results) {
               console.log(results);
-              $scope.eventdocs = results.data.docs;
+              $scope.eventdocs = results.data;
 
           },
           function (err) {

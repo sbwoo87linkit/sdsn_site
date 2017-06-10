@@ -97,10 +97,21 @@
 <!--일반 계시판-->
 <article ng-if="boardType =='board'" class="post bottom-line" ng-repeat="item in items">
     <header>
-        <h4><a ui-sref="ko.board.view({'articleType': item.articleType, 'articleId':item.sid})">{{item.title}}</a>
-        </h4>
-        <span style="font-size: small"><i class="fa fa-clock-o"></i><time datetime="{{item.date}}">{{item.date | date : "y.MM.dd"}}</time></span>
-        <div ng-bind-html="item.content | linky:'_blank'" style="white-space: pre-line; font-size: small; margin-top: 5px">
+        <div class="row">
+            <div class="col-md-2">
+                <img ng-src="{{item.images[0].url}}" class="img-thumbnail" alt="" style="max-width:100%; height: auto; margin:10px 0px;">
+            </div>
+            <div class="col-md-10">
+                <h4><a ui-sref="ko.board.view({'articleType': item.articleType, 'articleId':item.sid})">{{item.title}}</a></h4>
+                <span style="font-size: small"><i class="fa fa-clock-o"></i><time datetime="{{item.date}}"> {{item.date | date : "y.MM.dd"}}</time></span>
+                <div ng-bind-html="item.content | linky:'_blank'"
+                     class="text"
+                     style="white-space: pre-line; font-size: small; margin-top: 5px">
+                </div>
+                <div class="small" style="margin-bottom: 10px">
+                    <a ui-sref="ko.board.view({'articleType': item.articleType, 'articleId':item.sid})">[ 더보기 ]</a>
+                </div>
+            </div>
         </div>
     </header>
 </article>

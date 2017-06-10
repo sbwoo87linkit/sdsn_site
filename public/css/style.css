@@ -93,7 +93,7 @@ div.content {
 }
 
 article.post {
-  margin: 30px 0;
+  margin: 10px 0;
 }
 
 .solidline {
@@ -396,4 +396,14 @@ p, li, td {
 
 div.tooltip-inner {
   max-width: 550px;
+}
+
+.text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 16px;     /* fallback */
+  max-height: 32px;      /* fallback */
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }

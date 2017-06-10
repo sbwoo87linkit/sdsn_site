@@ -67,43 +67,63 @@ exports.list = function(req, res) {
     //     res.send(docs)
     // })
 
-    co(function*() {
-        var args;
-        if(req.query.articleType){
-            // args={ articleType: {$regex : req.query.articleType}};
+    // co(function*() {
+    //     var args;
+    //     if(req.query.articleType){
+    //         // args = {
+    //         //     articleType: { '$regex': req.query.articleType },
+    //         //     $or: [
+    //         //         {
+    //         //             content: { '$regex': req.query.searchText }
+    //         //         },
+    //         //         {
+    //         //             title: { '$regex': req.query.searchText }
+    //         //         }
+    //         //     ],
+    //         //     // $or: [
+    //         //     //     {
+    //         //     //         share: true
+    //         //     //     }
+    //         //     // ]
+    //         // }
+    //
+    //         args = {
+    //         { $or: [ { articleType: { '$regex': req.query.articleType } }, {share: true}] },
+    //             $or: [
+    //                 {
+    //                     content: { '$regex': req.query.searchText }
+    //                 },
+    //                 {
+    //                     title: { '$regex': req.query.searchText }
+    //                 }
+    //             ]
+    //         }
+    //
+    //
+    //     }
+    //     // console.log("ARGS --- ", args);
+    //     var result= yield model.list(Number(req.query.page), Number(req.query.rows), args, db.collection('news'));
+    //     res.status(200).send(result);
+    // }).catch(function(err) {
+    //     console.log(err);
+    //     console.log(err.stack);
+    //     res.status(400).end();
+    // });
 
-            // args = {
-            //     articleType: { '$regex': 'notice' },
-            //     $or: [
-            //         {
-            //             content: { '$regex': '하나하나' }
-            //         },
-            //         {
-            //             title: { '$regex': '하나하나' }
-            //         }
-            //     ]
-            // }
+    console.log(req.query.articleType)
 
-            args = {
-                articleType: { '$regex': req.query.articleType },
-                $or: [
-                    {
-                        content: { '$regex': req.query.searchText }
-                    },
-                    {
-                        title: { '$regex': req.query.searchText }
-                    }
-                ]
-            }
-        }
-        // console.log("ARGS --- ", args);
-        var result= yield model.list(Number(req.query.page), Number(req.query.rows), args, db.collection('news'));
-        res.status(200).send(result);
-    }).catch(function(err) {
-        console.log(err);
-        console.log(err.stack);
-        res.status(400).end();
-    });
+    if (req.query.articleType==='notice') {
+        db.collection('news').find({ $or: [ {'articleType' : req.query.articleType}, { share: true } ] })
+            .sort({date: -1}).skip(req.query.rows * (req.query.page-1)).limit(Number(req.query.rows)).toArray(function (err, docs) {
+            res.send(docs);
+        })
+    } else {
+        db.collection('news').find({ $or: [ {'articleType' : req.query.articleType} ] })
+            .sort({date: -1}).skip(req.query.rows * (req.query.page-1)).limit(Number(req.query.rows)).toArray(function (err, docs) {
+            res.send(docs);
+        })
+    }
+
 }
 
 exports.view = function (req, res) {
