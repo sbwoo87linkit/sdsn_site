@@ -9,18 +9,19 @@
       </a>
     </div>
     <div class="col-md-6 text-right">
-      <span ng-if="user.role != 'admin'">
-        <a href="" ui-sref="ko.login"> 로그인</a>
-        <!--<span style="color: #ccc"> | </span>-->
-        <!--<a href="" ui-sref="ko.join.new"> 회원가입</a>-->
-      </span>
-      <span ng-if="user">
-        <a href="" ng-controller="ko.login.ctrl" ng-click="logout()"> 로그아웃</a>
-      </span>
-      <!--|-->
-      <!--<a href="" ui-sref="ko.home" data-toggle="collapse" data-target=".navbar-collapse.in">Korean</a>-->
-       <!--|-->
-      <!--<a href="" ui-sref="en.home" data-toggle="collapse" data-target=".navbar-collapse.in">English</a>-->
+      <!--<span ng-if="user.role != 'admin'">-->
+        <!--<a href="" ui-sref="ko.login"> 로그인</a>-->
+        <!--&lt;!&ndash;<span style="color: #ccc"> | </span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="" ui-sref="ko.join.new"> 회원가입</a>&ndash;&gt;-->
+      <!--</span>-->
+      <!--<span ng-if="user">-->
+        <!--<a href="" ng-controller="ko.login.ctrl" ng-click="logout()"> 로그아웃</a>-->
+      <!--</span>-->
+      <!--&lt;!&ndash;|&ndash;&gt;-->
+      <!--&lt;!&ndash;<a href="" ui-sref="ko.home" data-toggle="collapse" data-target=".navbar-collapse.in">Korean</a>&ndash;&gt;-->
+       <!--&lt;!&ndash;|&ndash;&gt;-->
+      <!--&lt;!&ndash;<a href="" ui-sref="en.home" data-toggle="collapse" data-target=".navbar-collapse.in">English</a>&ndash;&gt;-->
+      <a href="http://ojeri.korea.ac.kr/ko/" target="_blank"><img src="images/ojeri_logo.png" alt=""></a>
     </div>
   </div>
 
@@ -62,6 +63,12 @@
           <a href="" ui-sref="ko.join.new" data-toggle="collapse" data-target=".navbar-collapse.in">JOIN US</a>
         </li>
       </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-if="!user"><a href="" ui-sref="ko.login"> 로그인</a></li>
+        <li ng-if="user"><a href="" ng-controller="ko.login.ctrl" ng-click="logout()"> 로그아웃</a></li>
+      </ul>
+
     </div>
     <!--/.nav-collapse -->
   </div>
